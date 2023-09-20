@@ -28,7 +28,7 @@ final List<String> categories = [
 ];
 const bool selected = false;
 
-/*class IconScreen extends StatefulWidget {
+class IconScreen extends StatefulWidget {
   const IconScreen({super.key});
 
   @override
@@ -40,8 +40,8 @@ class _IconScreenState extends State<IconScreen> {
   void initState() {
     super.initState();
     final iconProvider = Provider.of<IconProvider>(context, listen: false);
-    iconProvider.fetchIcons();
     Future.delayed(Duration.zero, () {
+      iconProvider.fetchIcons();
       iconProvider.setSelectedCategory("Animals");
     });
     iconProvider.checkInternetConnection();
@@ -85,6 +85,8 @@ class _IconScreenState extends State<IconScreen> {
               itemCount: filteredIcons.length,
               itemBuilder: (context, index) {
                 final iconUrl = filteredIcons[index].icon ?? '';
+                print('iconUrl:'
+                 +iconUrl.toString());
                 return Container(
                   margin: const EdgeInsets.all(10),
                   height: 100,
@@ -142,9 +144,10 @@ class _IconScreenState extends State<IconScreen> {
       }),
     );
   }
-}*/
+}
 
 
+/*
 class IconScreen extends StatefulWidget {
   const IconScreen({super.key});
 
@@ -229,7 +232,7 @@ class _IconScreenState extends State<IconScreen> {
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                   ),
-                  child: Image.asset(iconUrl),
+                  child: Image.file(iconUrl),
                 );
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -278,4 +281,4 @@ class _IconScreenState extends State<IconScreen> {
       ),
     );
   }
-}
+}*/
